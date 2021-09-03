@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:nestedScrollingEnabled="false"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/scoreCorporal12"
+        android:layout_width="126dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="259dp"
+        android:layout_marginBottom="517dp"
+        android:text="Score Corporal:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/idVaca"
+        android:layout_width="88dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="288dp"
+        android:layout_marginBottom="588dp"
+        android:text="ID da Vaca:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/corporalButtons"
+        android:layout_width="354dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="464dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreCorporal12">
+
+        <RadioButton
+            android:id="@+id/scoreCorporal1"
+            android:layout_width="51dp"
+            android:layout_height="30dp"
+            android:text="1"
+            tools:text="1" />
+
+        <RadioButton
+            android:id="@+id/scoreCorporal2"
+            android:layout_width="51dp"
+            android:layout_height="30dp"
+            android:text="2"
+            tools:text="2" />
+
+        <RadioButton
+            android:id="@+id/scoreCorporal3"
+            android:layout_width="51dp"
+            android:layout_height="30dp"
+            android:text="3"
+            tools:text="3" />
+
+        <RadioButton
+            android:id="@+id/scoreCorporal4"
+            android:layout_width="51dp"
+            android:layout_height="30dp"
+            android:text="4"
+            tools:text="4" />
+
+        <RadioButton
+            android:id="@+id/scoreCorporal5"
+            android:layout_width="51dp"
+            android:layout_height="30dp"
+            android:text="5"
+            tools:text="5" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/corporalDecimal"
+        android:layout_width="356dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="425dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/corporalButtons">
+
+        <RadioButton
+            android:id="@+id/scoreCorporal0"
+            android:layout_width="52dp"
+            android:layout_height="30dp"
+            android:text="0" />
+
+        <RadioButton
+            android:id="@+id/scoreCorporal025"
+            android:layout_width="68dp"
+            android:layout_height="28dp"
+            android:text=".25"
+            tools:text=".25" />
+
+        <RadioButton
+            android:id="@+id/scoreCorporal05"
+            android:layout_width="52dp"
+            android:layout_height="30dp"
+            android:text=".5"
+            tools:text=".5" />
+
+        <RadioButton
+            android:id="@+id/scoreCorporal075"
+            android:layout_width="66dp"
+            android:layout_height="26dp"
+            android:text=".75"
+            tools:text=".75" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/scoreLocomotor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="271dp"
+        android:layout_marginBottom="6dp"
+        android:text="Score Locomotor:"
+        app:layout_constraintBottom_toTopOf="@+id/scoreLocomotorButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/corporalDecimal" />
+
+    <TextView
+        android:id="@+id/observacaoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="307dp"
+        android:layout_marginBottom="7dp"
+        android:text="Observação:"
+        app:layout_constraintBottom_toTopOf="@+id/observacaoButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreLocomotorButtons" />
+
+    <RadioGroup
+        android:id="@+id/scoreLocomotorButtons"
+        android:layout_width="353dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/salvar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreLocomotor">
+
+        <RadioButton
+            android:id="@+id/scoreLocomotor1"
+            android:layout_width="57dp"
+            android:layout_height="26dp"
+            android:text="1"
+            tools:text="1" />
+
+        <RadioButton
+            android:id="@+id/scoreLocomotor2"
+            android:layout_width="51dp"
+            android:layout_height="27dp"
+            android:text="2"
+            tools:text="2" />
+
+        <RadioButton
+            android:id="@+id/scoreLocomotor3"
+            android:layout_width="51dp"
+            android:layout_height="27dp"
+            android:text="3"
+            tools:text="3" />
+
+        <RadioButton
+            android:id="@+id/scoreLocomotor4"
+            android:layout_width="51dp"
+            android:layout_height="27dp"
+            android:text="4"
+            tools:text="4" />
+
+        <RadioButton
+            android:id="@+id/scoreLocomotor5"
+            android:layout_width="51dp"
+            android:layout_height="27dp"
+            android:text="5"
+            tools:text="5" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/salvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginBottom="135dp"
+        android:text="Salvar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreLocomotorButtons" />
+
+    <EditText
+        android:id="@+id/idVacaCampo"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="174dp"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:focusable="auto"
+        android:focusableInTouchMode="true"
+        android:inputType="number"
+        android:selectAllOnFocus="false"
+        app:layout_constraintBottom_toTopOf="@+id/scoreCorporal12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idVaca" />
+
+    <RadioGroup
+        android:id="@+id/observacaoButtons"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="104dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/salvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/observacaoText">
+
+        <RadioButton
+            android:id="@+id/observacao0"
+            android:layout_width="58dp"
+            android:layout_height="26dp"
+            android:text="0" />
+
+        <RadioButton
+            android:id="@+id/observacao"
+            android:layout_width="58dp"
+            android:layout_height="26dp"
+            android:layout_weight="1"
+            android:text="1" />
+
+        <RadioButton
+            android:id="@+id/observacao2"
+            android:layout_width="58dp"
+            android:layout_height="26dp"
+            android:text="2" />
+
+        <RadioButton
+            android:id="@+id/observacao3"
+            android:layout_width="58dp"
+            android:layout_height="26dp"
+            android:inputType="number"
+            android:text="3" />
+
+        <RadioButton
+            android:id="@+id/observacao4"
+            android:layout_width="58dp"
+            android:layout_height="26dp"
+            android:text="4" />
+
+        <RadioButton
+            android:id="@+id/observacao5"
+            android:layout_width="58dp"
+            android:layout_height="26dp"
+            android:text="5" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_sair"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="41dp"
+        android:text="Sair"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/salvar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
