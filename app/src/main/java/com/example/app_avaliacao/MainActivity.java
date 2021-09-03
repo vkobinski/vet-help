@@ -1,16 +1,19 @@
 package com.example.app_avaliacao;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.avaliacao.modelos.Vaca;
@@ -20,6 +23,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
+import jxl.Cell;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 import jxl.write.Label;
@@ -27,15 +31,18 @@ import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
+import static android.view.inputmethod.InputMethodManager.SHOW_FORCED;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView id;
+    private EditText id;
     private RadioGroup scoreLocomotor, scoreCorporal, scoreCorporalDecimal, observacao;
     private Button salvar, sair;
     private String respostaLocomotor, respostaCorporal, respostaCorporalDecimal, respostaObservacao;
     private Vaca vaca;
     private RadioButton corporalDecimalInput, locomotorInput, corporalInput, observacaoInput;
     private String nomeFazenda;
+    private boolean novaVaca = false;
 
     public void setNomeFazenda(){
         Intent myIntent = getIntent();
@@ -73,11 +80,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void inicializarComponentes(){
-        id = findViewById(R.id.idVacaCampo);
+        id = (EditText) findViewById(R.id.idVacaCampo);
 
         id.requestFocus();
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(id, InputMethodManager.SHOW_IMPLICIT);
+        imm.toggleSoftInput(SHOW_FORCED, 0);
 
         scoreCorporal = (RadioGroup) findViewById(R.id.corporalButtons);
         scoreCorporalDecimal = (RadioGroup) findViewById(R.id.corporalDecimal);
@@ -147,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Label label2 = new Label(2, 0, "Score Locomotor");
             Label label3 = new Label(3, 0, "Observação");
             Label labelID = new Label(0, 1, this.vaca.getId());
-            Label labelCorporal = new Label(1, 1, this.vaca.getScoreCorporal());
+            Label labelCorporal = new Label(1, 1, this.vaca.getScoreCorporal().replace('.', ','));
             Label labelLocomotor = new Label(2, 1, this.vaca.getScoreLocomotor());
             Label labelObservacao = new Label(3, 1, this.vaca.getObservacao());
 
@@ -193,27 +201,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 workbook = Workbook.createWorkbook(file.getAbsoluteFile(), wb);
                 assert workbook != null;
                 WritableSheet plan = workbook.getSheet(0);;
-                Label labelID = new Label(0, plan.getRows(), this.vaca.getId());
-                Label labelCorporal = new Label(1, plan.getRows(), this.vaca.getScoreCorporal());
-                Label labelLocomotor = new Label(2, plan.getRows(), this.vaca.getScoreLocomotor());
-                Label labelObservacao = new Label(3, plan.getRows(), this.vaca.getObservacao());
-                plan.addCell(labelID);
-                plan.addCell(labelCorporal);
-                plan.addCell(labelLocomotor);
-                plan.addCell(labelObservacao);
+                        Label labelID = new Label(0, plan.getRows(), this.vaca.getId());
+                        Label labelCorporal = new Label(1, plan.getRows(), this.vaca.getScoreCorporal().replace('.',','));
+                        Label labelLocomotor = new Label(2, plan.getRows(), this.vaca.getScoreLocomotor());
+                        Label labelObservacao = new Label(3, plan.getRows(), this.vaca.getObservacao());
+                        plan.addCell(labelID);
+                        plan.addCell(labelCorporal);
+                        plan.addCell(labelLocomotor);
+                        plan.addCell(labelObservacao);
 
-                Context context = getApplicationContext();
-                CharSequence texto = "Cadastro Adicionado!";
-                int duration = Toast.LENGTH_LONG;
+                        Context context = getApplicationContext();
+                        CharSequence texto = "Cadastro Adicionado!";
+                        int duration = Toast.LENGTH_LONG;
 
-                Toast toast = Toast.makeText(context, texto, duration);
-                toast.show();
-
-
+                        Toast toast = Toast.makeText(context, texto, duration);
+                        toast.show();
                 workbook.write();
                 workbook.close();
-
-            } catch (Exception e) {
+                    } catch (Exception e) {
                 System.out.println(e);
             }
 
