@@ -8,6 +8,7 @@
    * [Descrição](#Descrição)
    * [Funcionalidades](#funcionalidades)
    * [Exemplo de Tabela](#exemplo)
+   * [Imagens](#Imagens)
 
 
 <br>
@@ -29,3 +30,21 @@ O desenvolvimento foi feito em Java, usando o Android Studio em dois dias. </p>
 |ID|Score Corporal|Score Locomotor|Observação|
 | -------- | -------- | -------- |-------- |
 |111|1|1|1
+
+## Imagens:
+
+<h3 align="center">Tela inicial</h3>
+
+<p align='center'><img src='Imagens/telainicial.jpeg' alt="telainicial" width="300"/></p><br>
+
+<h3 align="center">Preenchimento</h3>
+
+<p align='center'><img src='Imagens/populandodados.jpeg' alt="populandodados" width="300"/></p><br>
+
+<h3 align="center">Arquivo .xls</h3>
+
+<p align='center'><img src='Imagens/arquivo.jpeg' alt="arquivo" width="300"/></p><br>
+
+<h3 align="center">Tabela Final</h3>
+
+<p align='center'><img src='Imagens/final.jpeg' alt="final" width="300"/></p><br>
