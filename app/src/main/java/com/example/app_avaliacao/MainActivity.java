@@ -121,80 +121,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             this.vaca = new Vaca(id.getText().toString(), corporal, this.respostaLocomotor, this.respostaObservacao);
 
-            try {
-                salvar();
-            } catch (IOException | BiffException e) {
-                e.printStackTrace();
-            }
-
-            this.id.setText("");
-
-            finish();
-            startActivity(getIntent());
+            salvar();
 
         }
     }
 
-    public void salvar() throws IOException, BiffException {
+    public void salvar(){
 
-        String caminho = this.nomeFazenda;
-        File file = new File(getExternalFilesDir(null), caminho + ".xls");
-        if (!file.exists()) {
-            WritableWorkbook wb = null;
-            try {
-                wb = Workbook.createWorkbook(file);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            assert wb != null;
-            wb.createSheet("Planilha", 0);
-            WritableSheet plan = wb.getSheet(0);
+            String caminho = this.nomeFazenda;
+            File file = new File(getExternalFilesDir(null), caminho + ".xls");
 
-            Label label = new Label(0, 0, "ID");
-            Label label1 = new Label(1, 0, "Score Corporal");
-            Label label2 = new Label(2, 0, "Score Locomotor");
-            Label label3 = new Label(3, 0, "Observação");
-            Label labelID = new Label(0, 1, this.vaca.getId());
-            Label labelCorporal = new Label(1, 1, this.vaca.getScoreCorporal().replace('.', ','));
-            Label labelLocomotor = new Label(2, 1, this.vaca.getScoreLocomotor());
-            Label labelObservacao = new Label(3, 1, this.vaca.getObservacao());
-
-            // Como o método pode levantar exceção
-            // iremos coloca-lo dentro de um try/catch
-            try {
-                plan.addCell(label);
-                plan.addCell(label1);
-                plan.addCell(label2);
-                plan.addCell(label3);
-                plan.addCell(labelID);
-                plan.addCell(labelCorporal);
-                plan.addCell(labelLocomotor);
-                plan.addCell(labelObservacao);
-
-
-            } catch (WriteException e1) {
-                e1.printStackTrace();
-            }
-
-            try {
-                wb.write();
-                wb.close();
-
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }
-
-            Context context = getApplicationContext();
-            CharSequence texto = "Planilha Criada!";
-            int duration = Toast.LENGTH_LONG;
-
-            Toast toast = Toast.makeText(context, texto, duration);
-            toast.show();
-
-
-
-
-        } else {
             WritableWorkbook workbook;
             try {
                 Workbook wb = Workbook.getWorkbook(file.getAbsoluteFile());
@@ -222,9 +158,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 System.out.println(e);
             }
 
+            finish();
+            startActivity(getIntent());
 
         }
 
 
     }
-}
