@@ -2,6 +2,7 @@
 
 <img src="https://img.shields.io/static/v1?label=android-studio&message=framework&color=green&style=for-the-badge&logo=ANDROID">
 <img src="https://img.shields.io/static/v1?label=java&message=language&color=red&style=for-the-badge&logo=JAVA">
+<p><a href="https://www.linkedin.com/feed/update/urn:li:activity:6846870779393646592/"> Vídeo do Projeto </a></p>
  <br>
 
  ### Tabela de Conteúdos
